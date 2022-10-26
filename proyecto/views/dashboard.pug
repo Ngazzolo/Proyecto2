@@ -1,27 +1,29 @@
 extends layout
 
 block cssDash
-  link(rel="stylesheet", href="stylesheets/dashboard.css")
-block content 
-  title Dashboard de Usuarios
-  header.text-center.text-white
-    h1.display-4  Lista de Usuarios
-  .row.py-5
-    .col-lg-10.mx-auto
-      .card.rounded.shadow.border-0
-        .card-body.p-5.bg-white.rounded
-          .table-responsive
-            table#example.table.table-striped.table-bordered(style='width:100%')
-              thead
-                tr
-                  th Usuario
-                  th Correo
-                  th Id String
-              tbody
-                | {{#each usuarios}}
-                tr
-                  td {{this.usuario}}
-                  td {{this.correo}}
-                  td {{this.idstring}}
-                |                 {{/each}}
-          a(href='create.pug' role='button') Alta de usuarios
+  link(rel='stylesheet', href='../../stylesheets/dashboard.css')
+
+block content
+    .container-contact100
+        .wrap-contact200
+            span.contact100-form-title
+                | Dashboard
+            table.table
+                thead
+                    tr
+                        th Type
+                        th User
+                        th Password
+                tbody
+                    each usr in users
+                        tr
+                            td= usr.type
+                            td= usr.user
+                            td= usr.password
+            .container-contact100-form-btn
+                .wrap-contact100-form-btn
+                    .contact100-form-bgbtn
+                    button.contact100-form-btn
+                        span
+                            a(href='/') Home
+                            i.fa.fa-long-arrow-right.m-l-7(aria-hidden='true')
