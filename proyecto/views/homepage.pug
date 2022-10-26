@@ -1,0 +1,18 @@
+extends layout
+
+block cssIndex
+  link(rel='stylesheet' href='stylesheets/index.css')
+
+block content 
+  title Inicio
+  h2 EvenTec La mejor experiencia en eventos
+  #container.container
+    .form-container.sign-in-container
+      form(action='/login' method='POST')
+        h1 Inicia Sesi&oacute;n
+        span Completa la informaci&oacute;n
+        input(type='text' name = 'user' placeholder='Usuario')
+        input(type='password' name = 'password' placeholder='Password')
+        button(type='sumbit') Ingresar
+    .overlay-container
+      .overlay

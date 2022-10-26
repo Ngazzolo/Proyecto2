@@ -1,0 +1,19 @@
+extends layout
+
+block cssIndex
+  link(rel='stylesheet' href='stylesheets/index.css')
+
+block content 
+  title Inicio
+  h2 EvenTec La mejor experiencia en eventos
+  #container.container
+    .form-container.sign-in-container
+      form(action='/' method='GET')
+        h1 Alta de Usuarios
+        span Ingrese la informaci&oacute;n del asistente
+        input(type='Nombre' placeholder='Nombre')
+        input(type='Correo' placeholder='Correo')
+        button(type='sumbit') Dar de alta
+        a(href='/dashboard' role='button') Dashboard
+    .overlay-container
+      .overlay
