@@ -20,7 +20,7 @@ exports.login = function(req, res){
             return
         }
         if(result.password == pwd) {
-            res.render('admin/create');
+            res.render('create');
             return
         }
         //Si coincide se crea

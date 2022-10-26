@@ -14,12 +14,14 @@ block content
                         th Type
                         th User
                         th Password
+                        th Status
                 tbody
                     each usr in users
                         tr
-                            td= usr.type
-                            td= usr.user
-                            td= usr.password
+                            td= usr.codigoQR
+                            td= usr.nombre
+                            td= usr.correo
+                            td= usr.estatus
             .container-contact100-form-btn
                 .wrap-contact100-form-btn
                     .contact100-form-bgbtn

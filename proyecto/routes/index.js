@@ -10,5 +10,7 @@ router.get('/dashboard', UserController.dashboard);
 
 router.post('/login', AdminController.login);
 
+router.post('/create', UserController.create);
+
 
 module.exports = router;

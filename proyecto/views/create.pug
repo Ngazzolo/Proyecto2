@@ -1,4 +1,4 @@
-extends ../layout
+extends layout
 
 block cssIndex
   link(rel='stylesheet' href='stylesheets/index.css')
@@ -8,7 +8,7 @@ block content
   h2 EvenTec La mejor experiencia en eventos
   #container.container
     .form-container.sign-in-container
-      form(action='/login' method='POST')
+      form(action='/create' method='POST')
         h1 Alta de Usuarios
         span Ingrese la informaci&oacute;n del asistente
         input(type='Nombre' name='nombre' placeholder='Nombre')
