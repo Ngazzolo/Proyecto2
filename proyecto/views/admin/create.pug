@@ -8,11 +8,11 @@ block content
   h2 EvenTec La mejor experiencia en eventos
   #container.container
     .form-container.sign-in-container
-      form(action='/' method='GET')
+      form(action='/login' method='POST')
         h1 Alta de Usuarios
         span Ingrese la informaci&oacute;n del asistente
-        input(type='Nombre' placeholder='Nombre')
-        input(type='Correo' placeholder='Correo')
+        input(type='Nombre' name='nombre' placeholder='Nombre')
+        input(type='Correo' name='correo' placeholder='Correo')
         button(type='sumbit') Dar de alta
         a(href='/dashboard' role='button') Dashboard
     .overlay-container
