@@ -6,24 +6,34 @@ exports.home = function(req,res){
     res.render('homepage')
 }
 
-exports.login = (req, res) => {
+exports.login = function(req, res){
     
     //Obtiene el body de homepage.pug
-    let admin = req.body.admin;
-
-    Admin.find(admin).then((admins) => {
+    let usr = req.body.user;
+    let pwd = req.body.password;
+    console.log(usr)
+    console.log(pwd)
+    Admin.findOne({user:usr}, function(err, result){
         //Si el usuario no coincide manda
 
-        if(admins.user != 'Nicolas' && admins.password != 'nico1234') {
-            res.status(404).send('Usuario y/o contraseña incorrectos');
+        if(err){
+            console.log(err)
+            return
+        }
+        if(result.password == pwd) {
+            res.render('admin/create');
+            return
         }
         //Si coincide se crea
-        res.render('create');
+        else{
+            res.status(404).send('Usuario y/o contraseña incorrectos');
+        }
     });
 }
 
 exports.dashboard = function(req, res){
     Admin.find({}, function(err, usr){
+        console.log(usr)
         res.render("dashboard", {users:usr})
     })
 }
