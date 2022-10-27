@@ -3,7 +3,6 @@ const User = require('../models/Users')
 
 exports.dashboard = function(req, res){
     User.find({}, function(err, usr){
-        console.log(usr)
         res.render("dashboard", {users:usr})
     })
 }
@@ -26,10 +25,10 @@ exports.create = function(req, res){
     //res.render('create')
 }
 
-exports.usuario = function(req, res){
+exports.qr = function(req, res){
     let cor = req.body.correo;
     
-    User.find({}, function(err, result){
+    User.findOne({}, function(err, result){
         //Si el usuario no coincide manda
 
         if(err){
@@ -45,6 +44,10 @@ exports.usuario = function(req, res){
             res.status(404).send('Correo incorrecto');
         }
     });
+}
+
+exports.usuario = function(req, res){
+    res.render("user")
 }
 
 function makeid(length) {
