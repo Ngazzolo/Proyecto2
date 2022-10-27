@@ -26,6 +26,27 @@ exports.create = function (req, res) {
     //res.render('create')
 }
 
+exports.usuario = function (req, res) {
+    let cor = req.body.correo;
+
+    User.find({}, function (err, result) {
+        //Si el usuario no coincide manda
+
+        if (err) {
+            console.log(err)
+            return
+        }
+        if (result.correo == cor) {
+            res.render('qr');
+            return
+        }
+        //Si coincide se crea
+        else {
+            res.status(404).send('Correo incorrecto');
+        }
+    });
+}
+
 function makeid(length) {
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
