@@ -1,1 +1,12 @@
-h2 Aqui va todo lo del qr
+extends layout
+
+block content
+    h2 Hola 
+    h3 Aqui esta tu boleto: 
+    h3 = qrtorender
+
+    #qrcode
+    script.
+        new QRCode(document.getElementById("qrcode"), qrtorender);
+        console.log(qrtorender)
+        
