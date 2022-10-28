@@ -28,15 +28,16 @@ exports.create = function (req, res) {
 exports.qr = function (req, res) {
     let cor = req.body.correo;
 
-    User.findOne({}, function (err, result) {
+    User.findOne({correo: cor}, function (err, result) { 
         //Si el usuario no coincide manda
-
-        if (err) {
+        if (err) { //si ta vacio se muestra
             console.log(err)
             return
         }
+        console.log(result)
         if (result.correo == cor) {
-            res.render('qr', { qrtorender: result.QRCode });
+            //console.log(result.codigoQR);
+            res.render('qr', { qrtorender: result.codigoQR, qrname: result.nombre });
 
             return
         }
