@@ -13,6 +13,8 @@ router.post('/login', AdminController.login);
 
 router.post('/create', UserController.create);
 
-router.post('/user', UserController.usuario);
+router.post('/qr', UserController.qr);
+
+router.get('/user', UserController.usuario);
 
 module.exports = router;
