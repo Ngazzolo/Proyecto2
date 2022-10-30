@@ -52,6 +52,10 @@ exports.usuario = function (req, res) {
     res.render("user")
 }
 
+exports.qrscan = function (req, res) {
+    res.render("qrscan")
+}
+
 function makeid(length) {
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

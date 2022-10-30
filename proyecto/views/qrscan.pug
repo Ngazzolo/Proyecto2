@@ -1,0 +1,21 @@
+extends layout
+
+block cssQRscan
+  link(rel='stylesheet' href='stylesheets/index.css')
+
+block content 
+    h1 Para scan
+    video#video(autoplay='')
+    canvas#canvas
+    script.
+        let canvas= document.querySelector("#canvas");
+        let contect= canvas.getContext("2d");
+        let video= document.querySelector("#video");
+        if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+            navigator.mediaDevices.getUserMedia({video: true}).then((stream) => {
+                video.srcObject = stream;
+                video.play();
+            });
+        }
+
+    
