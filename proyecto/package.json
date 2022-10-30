@@ -20,6 +20,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
     "pug": "^3.0.2",
+    "qr-scanner": "^1.4.1",
     "qrcode-reader": "^1.0.4",
     "qrcodejs": "^1.0.0"
   }

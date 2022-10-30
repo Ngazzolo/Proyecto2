@@ -53,7 +53,7 @@ exports.usuario = function (req, res) {
 }
 
 exports.qrscan = function (req, res) {
-    res.render("qrscan")
+    res.render("qrscan");
 }
 
 function makeid(length) {
