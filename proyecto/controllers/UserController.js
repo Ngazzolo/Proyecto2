@@ -28,7 +28,7 @@ exports.create = function (req, res) {
 exports.qr = function (req, res) {
     let cor = req.body.correo;
 
-    User.findOne({correo: cor}, function (err, result) { 
+    User.findOne({ correo: cor }, function (err, result) {
         //Si el usuario no coincide manda
         if (err) { //si ta vacio se muestra
             console.log(err)
@@ -61,11 +61,3 @@ function makeid(length) {
     }
     return result;
 }
-
-const generateQR = (qrcode) => {
-    const qrgenerated = new QRCode('qrgenerated', {
-        text: qrcode,
-        width: 128,
-        height: 128,
-    });
-};

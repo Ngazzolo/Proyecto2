@@ -1,12 +1,22 @@
 extends layout
 
-block content
-    h2 Hola 
-    h3 Aqui esta tu boleto: 
-    h3= qrtorender
-    h3= qrname
+block cssQR
+  link(rel='stylesheet' href='stylesheets/index.css')
 
-    #qrcode
-    script.
-        new QRCode(document.getElementById("qrcode"), '#{qrtorender}');
+block content 
+  title QR
+  h2 EvenTec La mejor experiencia en eventos
+  #container.container
+    .form-container.sign-in-container
+        form
+          h3= qrname
+          h3 Aquí esta tu boleto:
+          #qrcode 
+            script.
+                new QRCode(document.getElementById("qrcode"), '#{qrtorender}');
+    .overlay-container
+      .overlay
+
+
+        
         
