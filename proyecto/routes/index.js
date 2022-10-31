@@ -16,5 +16,6 @@ router.post('/create', UserController.create);
 router.post('/qr', UserController.qr);
 
 router.get('/user', UserController.usuario);
+router.get('/qrscan', UserController.qrscan);
 
 module.exports = router;

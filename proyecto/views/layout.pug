@@ -4,8 +4,15 @@ html
     title= title
     link(rel='stylesheet', href='../../stylesheets/style.css')
     link(rel='stylesheet', href='../../stylesheets/bootstrap.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js' integrity='sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==' crossorigin='anonymous' referrerpolicy='no-referrer')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/qr-scanner/1.4.1/qr-scanner.min.js" integrity="sha512-mQdlHfun/pXTN8yZUDItQS/bBmVqCU4Op5980CFJ5E39hHKmIWE8sQcbWX+G5t8AyRqXqemsxZaOy8E0Wln+qw==" crossorigin="anonymous" referrerpolicy="no-referrer")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/qr-scanner/1.4.1/qr-scanner-worker.min.js" integrity="sha512-U6MqJWVLYAju7u3JtHVasPpguvjKzKt44x4t4txuRLaJTVuNdYNCQFrevlxKCkQm1eEdHa3gZBoOZwau4MGPZQ==" crossorigin="anonymous" referrerpolicy="no-referrer")
+    script(src='https://unpkg.com/html5-qrcode' type='text/javascript')
+
     block cssIndex
     block cssDash
     block cssUser
+    block cssQR 
+    block cssQRscan 
   body
     block content

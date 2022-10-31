@@ -1,0 +1,22 @@
+extends layout
+
+block cssQRscan
+  link(rel='stylesheet' href='stylesheets/index.css')
+
+block content 
+    h1 Scan qr 
+    #reader
+    script.
+        var qrcodeScanner = new Html5QrcodeScanner("reader", {fps:10, qrbox:250});
+        function onScanSuccess(decodedText, decodedResult){
+            console.log(decodedResult);
+            qrcodeScanner.clear();
+        }
+        qrcodeScanner.render(onScanSuccess);
+        
+        
+
+
+
+
+    
