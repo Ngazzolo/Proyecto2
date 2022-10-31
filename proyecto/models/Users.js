@@ -29,4 +29,5 @@ UserSchema.statics.createInstance = function(codigoQR, nombre,correo, estatus){
 UserSchema.statics.add = function(aUser, cb){
     this.create(aUser, cb)
 }
+
 module.exports = mongoose.model('User', UserSchema)

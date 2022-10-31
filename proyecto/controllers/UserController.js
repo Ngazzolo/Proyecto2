@@ -25,6 +25,27 @@ exports.create = function (req, res) {
     //res.render('create')
 }
 
+exports.updateqr = function(req, res) {
+    console.log(req.body)
+    let userToFind = req.body;
+    const filter = {codigoQR: userToFind};
+    const updated = {estatus: 'Registrado'};
+
+    console.log(filter)
+    User.findOne({codigoQR: userToFind}, function (err, result) {
+        if(err){
+            console.log(err)
+            return
+        }
+        if(result.estatus == 'Sin registrar'){
+            User.findOneAndUpdate(filter, updated);
+            //console.log(filter)
+            res.render('homepage')
+        }
+        res.status(404).send('usuario ya registrado');
+    });
+}
+
 exports.qr = function (req, res) {
     let cor = req.body.correo;
 

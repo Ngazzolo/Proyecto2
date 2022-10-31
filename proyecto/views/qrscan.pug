@@ -11,6 +11,8 @@ block content
         function onScanSuccess(decodedText, decodedResult){
             console.log(decodedResult);
             qrcodeScanner.clear();
+            $.ajax({type: 'POST',url: '/updateqr', decodedResult: decodedResult, dataType: 'json'});
+            //$.post('/updateqr', decoResult: decodedResult);
         }
         qrcodeScanner.render(onScanSuccess);
         
