@@ -28,11 +28,11 @@ exports.create = function (req, res) {
 exports.updateqr = function(req, res) {
     console.log(req.body)
     let userToFind = req.body;
-    const filter = {codigoQR: userToFind};
+    const filter = {codigoQR: userToFind.decodedText};
     const updated = {estatus: 'Registrado'};
 
     console.log(filter)
-    User.findOne({codigoQR: userToFind}, function (err, result) {
+    User.findOne({codigoQR: userToFind.decodedText}, function (err, result) {
         if(err){
             console.log(err)
             return

@@ -9,9 +9,22 @@ block content
     script.
         var qrcodeScanner = new Html5QrcodeScanner("reader", {fps:10, qrbox:250});
         function onScanSuccess(decodedText, decodedResult){
+          console.log("My Result");
             console.log(decodedResult);
+            console.log(JSON.stringify(decodedResult));
             qrcodeScanner.clear();
-            $.ajax({type: 'POST',url: '/updateqr', decodedResult: decodedResult, dataType: 'json'});
+            $.ajax({
+              type: 'POST',
+              url: '/updateqr',
+              data: {"decodedText":decodedText},
+              dataType: 'application/json',
+              success: function(){
+                alert('se logro');
+              },
+              error: function(){
+                alert('no se logro:(')
+              }
+              });
             //$.post('/updateqr', decoResult: decodedResult);
         }
         qrcodeScanner.render(onScanSuccess);
