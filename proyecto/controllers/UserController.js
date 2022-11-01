@@ -38,7 +38,7 @@ exports.updateqr = function (req, res) {
             console.log(err)
             return
         }
-        if (result.estatus == 'Sin registrar') {
+        if (result.estatus == 'Sin Registrar') {
             User.findOneAndUpdate(filter, updated, opts, function (err, doc) {
                 if (err) {
                     console.log(err)
@@ -47,7 +47,7 @@ exports.updateqr = function (req, res) {
                 return
             });
         } else {
-            res.status(404).send('usuario ya registrado');
+            console.log('usuario ya registrado')
         }
 
     });
