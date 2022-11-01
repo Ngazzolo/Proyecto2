@@ -25,24 +25,31 @@ exports.create = function (req, res) {
     //res.render('create')
 }
 
-exports.updateqr = function(req, res) {
-    console.log(req.body)
-    let userToFind = req.body;
-    const filter = {codigoQR: userToFind.decodedText};
-    const updated = {estatus: 'Registrado'};
+exports.updateqr = function (req, res) {
 
-    console.log(filter)
-    User.findOne({codigoQR: userToFind.decodedText}, function (err, result) {
-        if(err){
+    let registrado = 'Registrado';
+    let userToFind = req.body.decodedText;
+    const filter = { codigoQR: userToFind };
+    const updated = { estatus: registrado };
+    const opts = { new: true };
+
+    User.findOne({ codigoQR: userToFind }, function (err, result) {
+        if (err) {
             console.log(err)
             return
         }
-        if(result.estatus == 'Sin registrar'){
-            User.findOneAndUpdate(filter, updated);
-            //console.log(filter)
-            res.render('homepage')
+        if (result.estatus == 'Sin registrar') {
+            User.findOneAndUpdate(filter, updated, opts, function (err, doc) {
+                if (err) {
+                    console.log(err)
+                }
+                res.render('homepage')
+                return
+            });
+        } else {
+            res.status(404).send('usuario ya registrado');
         }
-        res.status(404).send('usuario ya registrado');
+
     });
 }
 
