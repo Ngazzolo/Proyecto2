@@ -38,7 +38,7 @@ exports.updateqr = function (req, res) {
             console.log(err)
             return
         }
-        if (result.estatus == 'Sin Registrar') {
+        if (result.estatus == 'Sin registrar') {
             User.findOneAndUpdate(filter, updated, opts, function (err, doc) {
                 if (err) {
                     console.log(err)
